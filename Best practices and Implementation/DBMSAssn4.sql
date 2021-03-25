@@ -56,3 +56,20 @@ select p.p_name,o.status from orders o join product p where o.o_id=p.p_id and o.
 end; $$
 DELIMITER ;
 call ordersDetails('2018-03-01','2025-12-10');
+
+
+
+
+
+
+
+
+alter table product add index product_index(p_id);
+show index from product;
+
+alter table orders add index order_index(o_id);
+alter table orders add index order_date_index(time);
+show index from orders;
+
+alter table category add index cat_index(cat_id);
+show index from category;
