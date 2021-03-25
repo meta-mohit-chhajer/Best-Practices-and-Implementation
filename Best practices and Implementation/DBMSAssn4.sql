@@ -38,7 +38,7 @@ drop procedure if exists averageMonthSales;
 DELIMITER $$
 create procedure averageMonthSales(month int,year int)
 begin
-select p.p_id,p.p_name,o.time,sum(o.amt) from orders o join product p on o.o_id=p.p_id where month(o.time)=03 and year(o.time)=2018 group by p.p_id;
+select p.p_id,p.p_name,o.time,sum(o.amt) from orders o join product p on o.o_id=p.p_id where month(o.time)=month and year(o.time)=year group by p.p_id;
 end; $$
 DELIMITER ;
 call averageMonthSales(03,2018);
